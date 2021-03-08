@@ -1,0 +1,234 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10 Senai</title>
+</head>
+<style>
+    input {
+        display: block;
+    }
+
+    h1 {
+        font-size: 18px;
+        margin-bottom: 0px;
+        margin-bottom: 8px;
+    }
+
+    span {
+        font-size: 15px;
+        font-family:,, cursive, Arial, Helvetica, sans-serif;
+        color: blue;
+    }
+
+    p {
+        margin: 0px;
+    }
+
+    body {
+        width: 40%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .questao {
+        background-color: #e0f7faa1;
+        padding: 1px 0px 10px 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+
+    }
+    .questao:hover {
+        background-color: #e0f7fa;
+    }
+    input[type=button]{
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <div id="corpo">
+        <div class="questao">
+            <h1>Questã 01:<span>Calcular a média ponderada de 3 notas
+                    <a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1006"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="media">Resultado: A média das 3 notas foi xx.</p>
+            <label for="nota01">Nota 01:</label>
+            <input type="text" name="nota01" id="nota01">
+            <label for="nota02">Nota 02:</label>
+            <input type="text" name="nota02" id="nota02">
+            <label for="nota03">Nota 03:</label>
+            <input type="text" name="nota03" id="nota03">
+            <input type="button" value="Calcular" onclick="calcular()">
+            <script>
+                function calcular(){
+                var n1 = Number(document.getElementById("nota01").value);
+                var n2 = Number(document.getElementById("nota02").value);
+                var n3 = Number(document.getElementById("nota03").value);
+                var resultado = (n1 + n2 + n3 ) /3;
+                document.getElementById("media").innerHTML = "A média das 3 notas foi " +  resultado.toFixed(2) + ".";
+    }
+       </script>
+        
+        <div class="questao">
+            <h1>Questã 02:<span> Senha Fixa <a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1114"
+             target="_blank">detalhar</a></span></h1>
+            <p id="senha">Resultado: xxxxx</p>
+            <label for="senha01">Digite a senha:</label>
+            <input type="password"  name="senha01" id="senha01">
+            <input type="button" value="Calcular" onclick="validar()">
+        <script>
+            function validar(){    
+            var password = Number(document.getElementById("senha01").value);
+            if (password==2002 )
+            {
+                document.getElementById("senha").innerHTML = "Acesso Permitido"
+             }
+            else 
+            {
+                document.getElementById("senha").innerHTML= "Senha Incorreta! Try again" 
+        }
+    }
+
+</script>
+        </div>
+       
+            <div class="questao">
+            <h1>Questã 03:<span> Intervalo [0,25], [25,50], [50,75], [75,100] 
+                        <a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1037"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="resultado">Resultado: O valor digita esta no intervalo [xx,xx].</p>
+            <label for="">Valor:</label>
+            <input type="text" id="valor">
+            <button onclick="intervalo()">Calcular</button>
+
+            <script>
+            function intervalo() {
+
+            var valorIntervalo = document.getElementById("valor").value;
+
+            if (valorIntervalo >= 0 && valorIntervalo <= 25.0000) {
+                document.getElementById("resultado").innerHTML = "Resultado: O valor digita esta no intervalo [0,25]\n";
+
+            } else if (valorIntervalo >= 25.00001 && valorIntervalo <= 50.0000000) {
+                document.getElementById("resultado").innerHTML = "Resultado: O valor digita esta no intervalo (25,50]\n";
+
+            } else if (valorIntervalo >= 50.00001 && valorIntervalo <= 75.0000000) {
+                document.getElementById("resultado").innerHTML = "Resultado: O valor digita esta no intervalo (50,75)\n";
+
+            } else if (valorIntervalo >= 75.00001 && valorIntervalo <= 100.0000000) {
+                document.getElementById("resultado").innerHTML = "Resultado: O valor digita esta no intervalo (75,100]\n";
+
+            } else {
+                document.getElementById("resultado").innerHTML = "Resultado: Fora de intervalo\n";
+
+            }
+
+        }
+</script>
+
+        </div>
+       
+        <div class="questao">
+            <h1>Questã 04:<span> Aumento de Salário 
+                        <a  href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1048"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="">Resultado: Novo salario: xx.xx, Ganho: xx.xx, Percentual: xx%</p>
+            <label for="">Salário atual:</label>
+            <input type="text" id="atual">
+            <button onclick="salarioatual">Calcular</button>
+
+        <script>
+             function novosalario(){
+
+             var salario = Number(document.getElementById("salarioatual").value);
+             var novosalario = 0;
+             var percentual = ["15%", "12%", "10%", "7%", "4%"]
+             var ganho = 0;
+
+        if (salario > 0 && salario <= 400){
+
+            novosalario = salario + (salario * (15/100));
+            ganho = novosalario - salario;       
+            document.getElementById("aumento").innerHTML = "Resultado: Novo salario: R$ " + novosalario.toFixed(2) + ", Ganho: R$ " + ganho.toFixed(2) + ", Percentual: " + percentual[0] + ".";
+            }
+        else if (salario > 400 && salario <= 800){
+
+            novosalario = salario + (salario * (12/100));
+            ganho = novosalario - salario;       
+            document.getElementById("aumento").innerHTML = "Resultado: Novo salario: R$ " + novosalario.toFixed(2) + ", Ganho: R$ " + ganho.toFixed(2) + ", Percentual: " + percentual[1] + ".";
+    }
+         else if (salario > 800 && salario <= 1200){
+
+            novosalario = salario + (salario * (10/100));
+            ganho = novosalario - salario;       
+            document.getElementById("aumento").innerHTML = "Resultado: Novo salario: R$ " + novosalario.toFixed(2) + ", Ganho: R$ " + ganho.toFixed(2) + ", Percentual: " + percentual[2] + ".";
+    }
+        else if (salario > 1200 && salario <= 2000){
+
+            novosalario = salario + (salario * (7/100));
+            ganho = novosalario - salario;       
+            document.getElementById("aumento").innerHTML = "Resultado: Novo salario: R$ " + novosalario.toFixed(2) + ", Ganho: R$ " + ganho.toFixed(2) + ", Percentual: " + percentual[3] + ".";
+
+    }
+        else{
+
+            novosalario = salario + (salario * (4/100));
+            ganho = novosalario - salario;       
+            document.getElementById("aumento").innerHTML = "Resultado: Novo salario: R$ " + novosalario.toFixed(2) + ", Ganho: R$ " + ganho.toFixed(2) + ", Percentual: " + percentual[4] + ".";
+    }
+
+    }
+        </script>
+
+        </div>
+       
+            <div class="questao">
+            <h1>Questã 05:<span> Imposto de Renda 
+                                   <a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1051"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="">Resultado:Imposto xxxxx</p>
+            <label for="">Renda:</label>
+            <input type="text" id="">
+            <button onclick="Imposto">Calcular</button>
+
+            <script>
+            function imposto(){
+
+            var valor = Number(document.getElementById("imposto").value);
+
+            var taxa = 0;
+
+            if (valor > 0 && valor <= 2000){
+
+            document.getElementById("renda").innerHTML = "Resultado: Imposto Isento";
+
+    }
+            else if (valor > 2000 && valor <= 3000){
+
+            taxa = (valor - 2000) *(8/100);
+            document.getElementById("renda").innerHTML = "Resultado: Imposto " + taxa.toFixed(2);
+    }
+            else if (valor > 3000 && valor <= 4500){
+
+            valor -= 2000;
+            taxa = 80 + (valor - 1000) * (18/100);
+            document.getElementById("renda").innerHTML = "Resultado: Imposto " + taxa.toFixed(2);
+    }
+            else{
+            valor -= 2000;
+            taxa = 80 + 270 + (valor - 2500) * (28/100);
+            document.getElementById("renda").innerHTML = "Resultado: Imposto " + taxa.toFixed(2);
+    }
+
+}
+    </script>
+
+        </div>
+</body>
+    
+</html>
